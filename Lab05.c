@@ -60,24 +60,36 @@ void z3() {
 void z4(int* n) {
 	printf("n^2 = %d\n", (*n) * (*n));
 }
-int z5(int* n, int* k) {
-	int a = *k, c = *n;
-	int b = a, * p;
-	p = &b;
-	if (a == 0) {
-		b = 1;
+int* z5(int* liczba, int* wykladnik) {
+	int wynik = 1;
+	for (int i = 0; i < *wykladnik; ++i) {
+		wynik *= *liczba;
 	}
-	else if (a == 1) {
-		b = c;
+
+	int* wynik_ptr = &wynik;
+	return wynik_ptr;
+}
+void z6(char* znak, int* ilosc) {
+	for (int i = 0; i < *ilosc; ++i) {
+		printf("%c", *znak);
+	}
+	printf("\n");
+	(*ilosc)--;
+}
+int z7(int* a, int* b, int** mniejsza) {
+	if (*a < *b) {
+		*mniejsza = a;
+		return *a;
 	}
 	else {
-		for (int i = 0; i < a; i++) {
-			b = b * b;
-
-		}
+		*mniejsza = b;
+		return *b;
 	}
-	return p;
-
+}
+void z8(int* a, int* b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 int main() {
 	//z1();
